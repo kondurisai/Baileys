@@ -294,7 +294,7 @@ export async function generateThumbnail(
     }
 ) {
 	let thumbnail: string | undefined
-	let originalImageDimensions: { width: number, height: number } | undefined
+	let originalImageDimensions: { width: number, height: number } | undefined= {width:32,height:32};
 	if(mediaType === 'image') {
 		const { buffer, original } = await extractImageThumb(file)
 		thumbnail = buffer.toString('base64')
