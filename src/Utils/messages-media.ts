@@ -296,7 +296,9 @@ export async function generateThumbnail(
 	let thumbnail: string | undefined
 	let originalImageDimensions: { width: number, height: number } | undefined= {width:32,height:32};
 	if(mediaType === 'image') {
-		const { buffer, original } = await extractImageThumb(file)
+		const { buffer, original } = await extractImageThumb(file);
+		options.logger?.debug('Image  thumb: ' + original.width + 'x' + original.height)
+
 		thumbnail = buffer.toString('base64')
 		if(original.width && original.height) {
 			originalImageDimensions = {
@@ -313,7 +315,8 @@ export async function generateThumbnail(
 
 			await fs.unlink(imgFilename)
 		} catch(err) {
-			options.logger?.debug('could not generate video thumb: ' + err)
+			options.logger?.debug('could not generate video thumb: ' + err);
+			options.logger?.error('could not generate video thumb: ' + err)
 		}
 	}
 
