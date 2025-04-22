@@ -81,13 +81,13 @@
       "optional": true
     },
     "jimp": {
-      "optional": true
+      "optional": false
     },
     "link-preview-js": {
-      "optional": true
+      "optional": false
     },
     "sharp": {
-      "optional": true
+      "optional": false
     }
   },
   "packageManager": "yarn@1.22.19",
